@@ -1,11 +1,14 @@
 <?php
-require_once __DIR__ . '/../vendor/autoload.php';
-$router = new Bramus\Router\Router();
-$router ->get(pattern: '', fn: function(): void{
-    echo "olá,sou uma página inicial";
-});
 
-$router ->get(pattern: '/login', fn: function(): void{
-    echo 'olá sou uma página inicial';
-});
+require_once __DIR__ ."/../vendor/autoload.php";
+define(constant_name: '__BASE__', value: realpath(path: __DIR__));
 
+  $router = new \Bramus\Router\Router();
+
+  foreach(glob(__DIR__ . "/../src/router/*.router.php") as $routerFile) { 
+    include_once $routerFile;
+  }
+
+  $router->run();
+
+  ?>

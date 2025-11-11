@@ -3,7 +3,8 @@
     "license": "MIT",
     "autoload": {
         "psr-4": {
-           
+           "Controller\\": "src/controller",
+           "Services\\" : "src/services"
         }
     },
     "authors": [
@@ -14,6 +15,8 @@
     ],
     "minimum-stability": "dev",
     "require": {
-        "bramus/router": "~1.6"
+        "php": ">=8.0.0",
+        "bramus/router": "~1.6",
+        "league/plates": "v3.x-dev"
     }
 }
